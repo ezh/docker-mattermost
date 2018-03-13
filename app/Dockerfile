@@ -3,12 +3,14 @@ FROM ubuntu:16.04
 # Some ENV variables
 ENV PATH="/mattermost/bin:${PATH}"
 ENV MM_VERSION=4.4.3
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Build argument to set Mattermost edition
 ARG edition=enterprise
 
 # Install some needed packages
 RUN apt-get update \
+    && apt-get -y --no-install-recommends install apt-utils \
     && apt-get -y --no-install-recommends install \
       curl \
       jq \

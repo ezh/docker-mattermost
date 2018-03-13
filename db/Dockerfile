@@ -2,6 +2,7 @@ FROM postgres:9.4
 
 # Install some packages to use WAL
 RUN apt-get update \
+    && apt-utils
     && apt-get install -y \
       build-essential \
       curl \
